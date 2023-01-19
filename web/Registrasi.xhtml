@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Jagakarsa Vaksin</title>
+    </h:head>
+    <h:body>
+        <b:navBar brand="Halaman Admin" brandHref="#" fixed="top" inverse="true" style="background-color: #11baf7">
+            <b:navbarLinks style="color:black"  pull="right">
+                <b:navLink iconAwesome="arrow-circle-o-left" href="Admin.xhtml" style="font-weight:bold"> kembali </b:navLink>
+                <b:navLink iconAwesome="arrow-circle-o-right" href="tambahadmin.xhtml" style="font-weight:bold"> tambah admin baru </b:navLink>
+            </b:navbarLinks>
+        </b:navBar>
+        <b:container>
+            <h2>Data Admin</h2>
+
+            <h:dataTable border="1" value="#{adminLogin.getData()}" var="Admin"
+                         styleClass="order-table"
+                         headerClass="order-table-header"
+                         rowClasses="order-table-odd-row,order-table-even-row">
+
+                <h:column>
+                    <f:facet name="header">id admin</f:facet>
+                        #{Admin.idAdmin}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">username</f:facet>
+                        #{Admin.username}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">password</f:facet>
+                        #{Admin.password}
+                </h:column>
+
+            </h:dataTable>
+        </b:container>   
+
+        <h:form style="padding-top: 100px">
+            <div class="kotakotak">  
+                <div class="input-group">
+                id admin <h:inputText style="border-radius: 3px;" class="form-control" value="#{adminLogin.idAdmin}"/>&nbsp;
+                <h:commandButton style="border-radius: 3px; margin-right: 10px" class="btn btn-primary" value="Search" action="#{adminLogin.getById()}"/>
+                </div>
+                <br/>
+                <div style="margin-right: 35px; border-radius: 3px; border-bottom: 3px">
+                    username <h:inputText value="#{adminLogin.username}"/>
+                    <br/>
+                    <br/>
+                </div>
+                <div style="margin-right: 35px; border-radius: 3px; border-bottom: 3px">
+                    password <h:inputText value="#{adminLogin.password}"/><br/>
+                </div>
+                <h:commandButton style="border-radius: 3px; margin-left: 10px" class="btn btn-primary" value="Edit" action="#{adminLogin.edit()}"/>&nbsp;<h:commandButton style="border-radius: 3px; margin-left: 10px" class="btn btn-primary" value="Delete" action="#{adminLogin.delete()}"/>&nbsp;<h:commandButton style="width: 72px; margin-left: 16px; margin-right: 16px;border-radius: 4px" class="btn" value="Reset" action="#{adminLogin.reset_admin()}"/><br/>
+
+            </div>
+        </h:form>
+
+
+        <style>
+            .kotakotak{
+                padding: 18px;
+                margin: 16px;
+                background: #FEFEFE;
+                box-shadow: 0px 1px 4px rgba(52, 60, 68, 0.1);
+                border-radius: 8px;
+            }
+
+            .form-control{
+                width: 10%;
+            }
+
+            .order-table{   
+                border-collapse:collapse;
+                font-size: 14px;
+                position: relative;
+            }
+
+            .order-table-header{
+                text-align:center;
+                background:none repeat scroll 0 0 #11baf7;
+                padding:8px;
+                width: 300px;
+                font-size: 14px;
+                color: white;
+            }
+
+            .order-table-odd-row{
+                text-align:center;
+                background:none repeat scroll 0 0 #FBFBFB;
+                /*	border-top:1px solid #BBBBBB;*/
+            }
+
+            .order-table-even-row{
+                text-align:center;
+                background:none repeat scroll 0 0 #FBFBFB;
+                /*	border-top:1px solid #BBBBBB;*/
+            }
+            
+            .input-group{
+                position:relative;
+                display:flex;flex-wrap:wrap;
+                align-items:stretch;
+                width:100%
+            }
+        </style>
+
+    </h:body>
+</html>
+

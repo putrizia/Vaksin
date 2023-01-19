@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Login Admin</title>
+    </h:head>
+    <h:body style="background-image: url(Images/background.jpg);background-size: cover">
+        <b:container>
+            <b:jumbotron style="text-align: center;background-image: url(Images/background.jpg);background-size: cover">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-xs-update">
+                            <b:container style="width: 50%">
+                                <h:form styleClass="form-signin" prependId="false">
+                                    <h2 class="form-signin-heading" style="text-align: center">ADMIN</h2>
+                                    <br></br>
+                                    <b:inputText required="true" placeholder="username" value="#{adminLogin.username}"
+                                                 required-message="Username cannot be empty" style="height: 40px">
+                                        <f:facet name="prepend">
+                                            <span class="glyphicon glyphicon-user"></span>
+                                        </f:facet>
+                                    </b:inputText>                           
+                                    <b:inputText required="true" placeholder="password" value="#{adminLogin.password}"
+                                                 required-message="Passwowrd cannot be empty" type="password" style="height: 40px" >
+                                        <f:facet name="prepend">
+                                            <span class="glyphicon glyphicon-lock"></span>
+                                        </f:facet>
+                                    </b:inputText>
+                                    <br></br>
+                                    <center>
+                                        <h:commandButton value="Login" action="#{adminLogin.login_admin()}"/>
+                                        <h:commandButton value="Kembali" action="/index.xhtml"/>
+                                    </center>
+                                               
+                                </h:form>
+                            </b:container>
+                        </div>
+                    </div> 
+                </div>
+            </b:jumbotron>
+        </b:container>
+    </h:body>
+</html>
+

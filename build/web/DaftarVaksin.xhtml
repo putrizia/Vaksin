@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Jagakarsa Vaksin</title>
+    </h:head>
+    <h:body>
+        <section class="book" id="book">
+            <h:form>
+                <h1 class="heading"> <span>silahkan daftar vaksin disini</span> </h1>
+                <div class="input-group">
+                    <span>Nama</span>
+                    <h:inputText class="box" a:placeholder="Nama Lengkap" value="#{registrationData.namaLengkap}"/><br/>
+                    
+                </div>
+
+                <div class="input-group">
+                    <span>NIK</span>
+                    <h:inputText class="box" a:placeholder="NIK" value="#{registrationData.nik}"/><br/><br/>
+                </div>
+                
+                <div class="input-group">
+                    <span>Alamat</span>
+                    <h:inputText class="box" a:placeholder="Alamat" value="#{registrationData.alamat}"/><br/><br/>
+                    
+                </div>
+
+                <div class="input-group">
+                    <span>No Handphone</span>
+                    <h:inputText class="box" a:placeholder="no handphone" value="#{registrationData.noHp}"/><br/><br/>
+                    
+                </div>
+
+                <div class="input-group">
+                    <span>Email</span>
+                    <h:inputText class="box" a:placeholder="Email" value="#{registrationData.email}"/><br/><br/>
+                    
+                </div>
+
+                <div class="input-group">
+                    <span>Vaksin (contoh: booster)</span>
+                    <h:selectOneRadio  class="box" a:placeholder="Vaksin" value="#{registrationData.vaksin}"><br/><br/>
+                    <f:selectItem itemValue="1" itemLabel="Kesatu" />
+                    <f:selectItem itemValue="2" itemLabel="Kedua" />
+                    <f:selectItem itemValue="3" itemLabel="Booster" />
+                    </h:selectOneRadio>
+                </div>
+                
+                <div class="input-group">
+                    <span>Tanggal (contoh 24/12/2022)</span>
+                    <h:inputText class="box" a:placeholder="Tanggal" value="#{registrationData.tanggal}">
+                        <f:convertDateTime pattern="dd/MM/yyy"/>
+                    </h:inputText>
+                </div>
+               <h:column>
+                        <f:facet name="header">Tanggal</f:facet>
+                        <h:outputText value="#{registrationData.tanggal}"></h:outputText>
+                    </h:column>
+                
+                <div class="input-group">
+                    <h:commandButton class="btn" value="Submit" action="#{registrationData.save_Daftar()}"/><br/>&nbsp;<h:commandButton class="btn" value="Reset" action="#{registrationData.reset_daftar()}"/><br></br>
+
+                </div>
+                
+            </h:form>
+        </section>
+       
+        <style>
+
+            .book{
+                background:url(Images/bgdaftar.jpg) no-repeat;
+                background-position: center;
+                background-size: cover;
+            }
+
+            .book form{
+                margin:0 auto 2rem auto;
+                max-width: 60rem;
+                border-radius:inherit;
+                padding:3rem;
+                border:#404040;;
+            }
+
+            .book form .box{
+                width:100%;
+                padding:1rem 1.2rem;
+                border-radius: .5rem;
+                font-size:medium;
+                background:none;
+                text-transform: none;
+                color: background;
+                border: #e1e1e1;
+                margin:.7rem 0;
+            }
+            
+            .input-group{
+                position:relative;
+                display:flex;flex-wrap:wrap;
+                align-items:stretch;
+                width:100%
+            }
+        </style>
+    </h:body>
+</html>
+

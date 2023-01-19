@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Jagakarsa Vaksin</title>
+    </h:head>
+    <h:body>
+        <b:navBar brand="Halaman Admin" brandHref="#" fixed="top" inverse="true" style="background-color: #11baf7">
+            <b:navbarLinks style="color:black"  pull="right">
+                <b:navLink iconAwesome="arrow-circle-o-left" href="index.xhtml" style="font-weight:bold"> Logout </b:navLink>
+                <b:navLink iconAwesome="arrow-circle-o-right" href="Registrasi.xhtml" style="font-weight:bold"> Edit Admin </b:navLink>
+            </b:navbarLinks>
+        </b:navBar>
+
+        <center>
+
+            <div class="content" style="padding-top: 100px">
+                <div class="title">
+                    <h3 class="title">hi <b><h:outputText value="#{adminLogin.username}"/></b> Login sukses  </h3>
+                </div>
+
+            </div>
+
+            <h:dataTable value="#{registrationData.getDatadaftar()}" var="regis"
+                                 styleClass="order-table"
+                                 headerClass="order-table-header"
+                                 rowClasses="order-table-odd-row,order-table-even-row">
+                
+            </h:dataTable>
+            <h:form style="padding-top: 100px">
+                <div class="kotakotak">  
+                    <h6 style="font-size: 13px">ID Daftar(auto)</h6>
+                    <div class="input-group mb-3"  >
+                        <h:inputText style="border-radius: 3px;" class="form-control" value="#{registrationData.idDaftar}"/><br/>
+
+                        <h:commandButton style="border-radius: 3px; margin-left: 10px" class="btn btn-primary" value="Search" action="#{registrationData.getByIddf()}"/><br/>
+
+                        <div class="input-group">    
+                            <div style="margin-right: 35px">
+                                <h6 style="font-size: 13px">Nama Lengkap*</h6>
+                                <h:inputText style="width: 213px" class="form-control" value="#{registrationData.namaLengkap}"/><br/> 
+                            </div>
+
+                            <div style="margin-right: 35px">
+                                <h6 style="font-size: 13px">NIK*</h6>
+                                <h:inputText style="width: 213px" class="form-control" value="#{registrationData.nik}"/><br/> 
+                            </div>
+
+                            <div style="margin-right: 35px">
+                                <h6 style="font-size: 13px">Alamat*</h6>
+                                <h:inputText style="width: 213px" class="form-control" value="#{registrationData.alamat}"/><br/> 
+                            </div>
+
+                            <div>
+                                <h6 style="font-size: 13px">no Handphone*</h6>
+                                <h:inputText style="width: 213px" class="form-control" value="#{registrationData.noHp}"/><br/> 
+                            </div>      
+
+                            <div>
+                                <h6 style="font-size: 13px">Email*</h6>
+                                <h:inputText style="width: 213px" class="form-control" value="#{registrationData.email}"/><br/> 
+                            </div>
+
+                            <div>
+                                <h6 style="font-size: 13px">Vaksin*</h6>
+                                <h:inputText style="width: 213px" class="form-control" value="#{registrationData.vaksin}"/><br/> 
+                            </div>
+
+                            <div>
+                                <h6 style="font-size: 13px">Tanggal*</h6>
+                                <h:inputText style="width: 213px" class="form-control" value="#{registrationData.tanggal}"/><br/> 
+                            </div>
+                        </div>     
+
+                        <h:commandButton style="border-radius: 3px; margin-left: 10px" class="btn btn-primary" value="edit" action="#{registrationData.edit_daftar()}"/><br/>&nbsp;<h:commandButton style="border-radius: 3px; margin-left: 10px" class="btn btn-primary" value="delete" action="#{registrationData.delete_daftar()}"/><br/>&nbsp;<h:commandButton style="width: 72px; margin-left: 16px; margin-right: 16px;border-radius: 4px" class="btn btn-outline-secondary" value="Reset" action="#{registrationData.reset_daftarAdmin()}"/>
+
+                    </div>
+
+
+                </div>
+            </h:form>
+        </center>
+
+        <style>
+            .kotakotak{
+                padding: 18px;
+                margin: 16px;
+                background: #FEFEFE;
+                box-shadow: 0px 1px 4px rgba(52, 60, 68, 0.1);
+                border-radius: 8px;
+            }
+
+            .form-control{
+                width: 10%;
+            }
+
+            .order-table{   
+                border-collapse:collapse;
+                font-size: 14px;
+            }
+
+            .order-table-header{
+                text-align:center;
+                background:none repeat scroll 0 0 #11baf7;
+                padding:8px;
+                width: 300px;
+                font-size: 14px;
+                color: white;
+            }
+
+            .order-table-odd-row{
+                text-align:center;
+                background:none repeat scroll 0 0 #FBFBFB;
+                /*	border-top:1px solid #BBBBBB;*/
+            }
+
+            .order-table-even-row{
+                text-align:center;
+                background:none repeat scroll 0 0 #FBFBFB;
+                /*	border-top:1px solid #BBBBBB;*/
+            }
+            .input-group{
+                position:relative;
+                display:flex;flex-wrap:wrap;
+                align-items:stretch;
+                width:100%
+            }
+            
+        </style>
+    </h:body>
+</html>
+
